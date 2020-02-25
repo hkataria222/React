@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>spinner</title>
+    <script src="state-manager.js"></script>
+    <script type="text/babel">
+      var store = StateManager.createStore(spinnerReducer)
+      store.subscribe(() => {
+        console.log(store.getState())
+      })
+
+      function spinnerReducer(currentState = 0, action) {
+        if (action === "UP") return currentState + 1
+        if (action === "DOWN") return currentState - 1
+        return currentState
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+        <input type="button" value="Down" onClick={this.onDownClick}/>
+        <span>[0]</span>
+        <input type="button" value="UP" onClick={this.onUpClick}/>
+  </body>
+</html>
